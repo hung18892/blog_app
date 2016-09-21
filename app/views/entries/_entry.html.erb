@@ -7,7 +7,9 @@
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(entry.created_at) %> ago.
+    <%= link_to "comment", entry %>
     <% if current_user?(entry.user) %>
+    <span>|</span>
       <%= link_to "delete", entry, method: :delete,
                                        data: { confirm: "You sure?" } %>
     <% end %>

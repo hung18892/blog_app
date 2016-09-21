@@ -34,3 +34,13 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+users.each do |user|
+  my_entries = user.entries
+    content = Faker::Lorem.sentence(5)
+    user.followers.each do |f|
+    my_entries.each do |entry|
+      f.comments.create!(content: content, entry_id: entry.id)
+    end
+  end
+end

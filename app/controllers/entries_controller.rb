@@ -18,6 +18,10 @@ class EntriesController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def show
+    @entry = Entry.find(params[:id])
+    @comments = @entry.comments.paginate(page: params[:page])
+  end
   private
 
     def entry_params
