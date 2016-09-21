@@ -8,7 +8,7 @@
         <%= current_user.name %>
       </h1>
     </section>
-  <% if current_user.following?(@entry.user) %>
+  <% if current_user.following?(@entry.user) || current_user == @entry.user %>
     <section class="entry_form">
         <%= render 'shared/comment_form' %>
       </section>
