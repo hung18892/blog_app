@@ -22,6 +22,15 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     @comments = @entry.comments.paginate(page: params[:page])
   end
+
+  def edit
+    
+  end
+
+  def update
+    
+  end
+
   private
 
     def entry_params
